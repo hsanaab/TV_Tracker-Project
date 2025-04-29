@@ -1,106 +1,114 @@
-# 📺 TV Tracker
+TV Tracker
+Welcome to TV Tracker, a web application where users can log, rate, comment on, and track their favorite TV shows!
 
-Welcome to **TV Tracker**, a web application where users can log, rate, comment on, and track their favorite TV shows!
-
----
-
-## 📚 Project Overview
-
+📚 Project Overview
 TV Tracker allows users to:
-- Add TV shows to a shared database
-- Rate and comment on shows
-- Track watch status ("Watching", "Watched", "To Watch")
-- Search and view other users' reviews
-- View your own and others' watchlists
-- Manage personal accounts with username/email/password
 
----
+Add TV shows to a shared database
 
-## ✨ Features
+Rate and comment on their favorite shows
 
-- 🔒 Secure user login and signup (password hashing)
-- ➕ Add TV shows if not already in the database
-- 🎭 Attach multiple genres (up to 3 per show)
-- ⭐ Rate shows from 1-5 and comment
-- 🔎 Search reviews by Title, Genre, or Rating
-- 📋 View your own watchlist or search by Username
-- 🚫 Inline error messages (no blank screens)
-- 🔥 Built-in SQL triggers and indexing for performance
+Track watch status ("Watching", "Watched", "To Watch")
 
----
+Search other users' reviews
 
-## 🛠️ Technologies Used
+View other users' watchlists
 
-- PHP (backend logic)
-- MySQL (database)
-- HTML5 / CSS3 (frontend)
-- JavaScript (minor interactivity)
-- Apache Server (via XAMPP for local development)
+Manage personal accounts through a simple username/email/password system
 
----
+✨ Features
+🔒 Secure user login and signup (password hashing)
 
-## 🗄️ Database Design
+➕ Add TV shows if not already in the database
 
-The system is normalized to 3NF and uses relational integrity through constraints, triggers, and indexing.
+🎭 Attach multiple genres (up to 3 per show)
 
-### Core Tables:
-- **Users**: Stores usernames, emails, hashed passwords
-- **TV_Shows**: Master list of shows
-- **Genres**: List of possible genres
-- **Show_Genres**: Many-to-many relationship between shows and genres
-- **User_Watchlist**: User-specific watch statuses
-- **User_Show_Data**: User-specific ratings and comments
+⭐ Rate shows from 1-5 and comment
 
-> 📈 ERD (Entity-Relationship Diagram) included separately.
+🔎 Search reviews by Title, Genre, or Rating
 
-### Triggers:
-- Enforce max 3 genres per show
-- Auto-fill review dates
-- Prevent duplicate TV shows
-- Maintain data consistency
+📋 View your own watchlist or search by Username
 
-### Indexes:
-- Title (TV_Shows)
-- Genre_ID (Show_Genres)
-- User_ID (User_Watchlist and User_Show_Data)
-- Rating (User_Show_Data)
+🚫 Inline error messages (no blank screens)
 
----
+🔥 Built-in SQL triggers and indexing for performance
 
-## ⚙️ Setup Instructions
+📦 Stored procedures and functions for efficient querying
 
-1. Install XAMPP and start Apache and MySQL.
-2. Import the provided SQL dump file into your MySQL server.
-3. Place the project folder (`TV_Tracker/`) into your `/htdocs/` directory.
-4. Access the app via `http://localhost/TV_Tracker/` in your browser.
-5. Create a new account or log in to start!
+🛠️ Technologies Used
+PHP (Core backend)
 
----
+MySQL (Database)
 
-## 🌟 Future Enhancements
+HTML/CSS (Frontend)
 
-- 🎨 Improve styling and mobile responsiveness
-- 🧑‍💼 Add user profile pages
-- 🔐 Password reset / recovery functionality
-- 👍 Like/upvote system for reviews
-- 🛠️ Admin panel for show/user management
-- 📧 Email validation and verification
-- 🔥 Autocomplete genres when adding shows
+JavaScript (for interactivity)
 
----
+Apache Server (via XAMPP for localhost)
 
-## 📣 Author
+🗄️ Database Design
+The project database is normalized to 3NF.
+Key tables:
 
-Built with ❤️ by [Your Name Here].
+Users: Stores usernames, emails, hashed passwords
 
----
+TV_Shows: Master list of TV shows
 
-## 📌 Submission Checklist
+Genres: List of genres
 
-✅ Database normalization and design (ERD included)  
-✅ Full SQL schema with constraints, triggers, and indexes  
-✅ Frontend and backend separation  
-✅ Full testing and validation  
-✅ Professional documentation (README + ERD)
+Show_Genres: Many-to-many table linking shows to genres
 
----
+User_Watchlist: Tracks user's watch statuses
+
+User_Show_Data: Stores user ratings and comments
+
+Stored Procedures and Functions:
+Name | Type | Purpose
+GetUserWatchlist(IN p_user_id INT) | Stored Procedure | Returns all shows on a specific user's watchlist
+GetAverageRatingByShow(p_show_id INT)	Stored Function	Returns the average user rating for a specific show
+
+
+📈 ERD (Entity-Relationship Diagram) provided separately.
+
+Triggers:
+
+Enforce max 3 genres per show
+
+Auto-fill dates when inserting reviews
+
+Prevent duplicate show entries
+
+Maintain data integrity across tables
+
+Indexes:
+
+Created on Title, Genre_ID, User_ID, and Rating for faster queries
+
+🛠️ Setup Instructions
+Install XAMPP and start Apache and MySQL.
+
+Import the provided SQL file into your MySQL server.
+
+Place project folder (TV_Tracker) into /htdocs/.
+
+Open http://localhost/TV_Tracker/ in your browser.
+
+Create a new user or log in to start adding shows!
+
+🌟 Future Enhancements
+Improve page styling (cleaner CSS, mobile responsiveness)
+
+Profile pages for each user
+
+Password reset functionality
+
+Like/upvote system for user reviews
+
+Full admin dashboard to manage shows and users
+
+Email validation during signup
+
+Enhanced genre tagging with autocomplete
+
+📣 Author
+Built with ❤️  by Sanaa Byron.
